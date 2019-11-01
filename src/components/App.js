@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "./App.module.sass";
-import castor from "../images/castor.png";
+import React from 'react';
+import styles from './App.module.sass';
+import castor from '../images/castor.png';
 
 function App() {
   return (
