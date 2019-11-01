@@ -1,12 +1,12 @@
 import React from "react";
-import "./App.sass";
+import styles from "./App.module.sass";
 import castor from "../images/castor.png";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img className="App-logo" src={castor} alt="Castor" />
+    <div className={styles.App}>
+      <header className={styles.AppHeader}>
+        <img className={styles.AppLogo} src={castor} alt="Castor" />
         <p>Salutations !!</p>
       </header>
     </div>
