@@ -10,7 +10,9 @@
     "source-map-explorer": "^2.1.0"
   },
   "scripts": {
+    "// START DEV SERVER": "",
     "start": "react-scripts start",
+    "// ANALYZE BUILD SIZE": "",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "// DEPLOYMENT": "",
     "build": "react-scripts build",

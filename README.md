@@ -1,63 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Site web - Raphaelle Grassigli
 
-## Available Scripts
+## Développer en local : `yarn start`
 
-In the project directory, you can run:
+### Setup initial
 
-### `yarn start`
+1. Installer VSCode : https://code.visualstudio.com/download
+2. Installer les extensions "Color Highlight", "Prettier - Code formatter" et "Sass"
+3. Dans les settings, activer l'option "Format On Save"
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Dans la console
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+1. Installer NodeJS : https://nodejs.org/en/download/
+2. Installer Yarn : https://yarnpkg.com/lang/en/docs/install/#windows-stable
+3. `git clone git@github.com:matthis-perrin/raphaelle-grassigli.git`
+4. `cd raphaelle-grassigli`
+5. `yarn install`
 
-### `yarn build`
+## Déployer en prod : `yarn deploy`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Setup initial
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+1. Créer le dossier `.aws` dans le répertoire utilisateur (`C:\Users\<NOM>\.aws\` sur Windows ou `~/.aws/` sur Mac)
+2. Dans le dossier `.aws` créer le fichier `config` avec le contenu suivant :
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+[default]
+region = eu-west-3
+output = json
+```
 
-### `yarn eject`
+3. Toujours dans le dossier `.aws`, créer le fichier `credentials` avec le contenu suivant :
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+[default]
+aws_access_key_id = <ACCESS_KEY_ID>
+aws_secret_access_key = <SECRET_ACCESS_KEY>
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Si les identifiants ont été perdu, on peut en regénérer des nouveaux :
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+1. Aller dans l'espace AWS "My Security Credentials" : https://console.aws.amazon.com/iam/home?#/security_credentials
+2. Cliquer sur le bouton "Create access key" et récupérer les identifiants. (Attention, le secret ne sera affiché à l'écran qu'une seul fois)
