@@ -6,7 +6,7 @@
 
 1. Installer VSCode : https://code.visualstudio.com/download
 2. Installer les extensions "Color Highlight", "Prettier - Code formatter" et "Sass"
-3. Dans les settings, activer l'option "Format On Save"
+3. Dans les settings (ctrl+,), activer l'option "Format On Save"
 
 Dans la console
 
