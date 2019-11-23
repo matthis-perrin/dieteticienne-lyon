@@ -1,20 +1,42 @@
-@import 'styles/variables.sass'
+@import '../styles/variables.sass'
 
-.App
-  text-align: center
+$top_bar_height: 80px
+$menu_height: 64px
+$footer_height: 80px
 
-.AppLogo
-  height: 40vmin
+.wrapper
+  background-color: $color_3
+  min-height: 100%
 
-.AppHeader
-  background-color: $primary-color
-  min-height: 100vh
+.top_bar
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  height: $top_bar_height
   display: flex
-  flex-direction: column
   align-items: center
-  justify-content: center
-  font-size: calc(10px + 2vmin)
+  background-color: $color_5
   color: white
 
-.AppLink
-  color: #09d3ac
+.app
+  margin: $top_bar_height auto 0 auto
+  display: flex
+  flex-direction: column
+  width: 1200px
+
+.menu
+  display: flex
+  align-items: center
+  height: $menu_height
+  background-color: $color_4
+
+.content
+  min-height: calc(100vh - #{$top_bar_height} - #{$menu_height} - #{$footer_height})
+  background-color: white
+
+.footer
+  display: flex
+  align-items: center
+  height: $footer_height
+  background-color: $color_4
