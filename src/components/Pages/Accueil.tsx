@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Accueil.module.sass';
 import r_grassigli from '../../images/r_grassigli.png';
-import banniere from '../../images/baniere_fruits_bleu_clair.svg';
+import banniere from '../../images/baniere_fruits_bleu_clair_2.svg';
 import {Link} from 'react-router-dom';
 
 interface Props {}
