@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Actualite.module.sass';
-import citron from '../../images/citron.png';
+import logo from '../../images/logo_pomme_design.png';
 
 interface Props {}
 
@@ -13,8 +13,11 @@ export class Actualite extends React.Component<Props, State> {
 
   render() {
     return (
-      <div className={styles.actualite}>
-        <img className={styles.img} src={citron}></img>
+      <div className={styles.wrapper}>
+        <div className={styles.text}>Coming soon</div>
+        <div className={styles.image}>
+          <img src={logo} />
+        </div>
       </div>
     );
   }
