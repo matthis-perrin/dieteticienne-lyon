@@ -35,7 +35,7 @@ export class Tarifs extends React.Component<Props, State> {
               </div>
               <div className={styles.wrapper_offre}>
                 <div className={styles.content}>
-                  <div className={styles.pastille}>Consultation de suivis</div>
+                  <div className={styles.pastille}>Consultations de suivi</div>
                 </div>
                 <div className={styles.wrapper_prix}>
                   <div className={styles.prix}>35</div>
@@ -70,7 +70,7 @@ export class Tarifs extends React.Component<Props, State> {
               </div>
               <div className={styles.wrapper_offre}>
                 <div className={styles.content}>
-                  <div className={styles.pastille}>Consultation de suivis</div>
+                  <div className={styles.pastille}>Consultations de suivi</div>
                 </div>
                 <div className={styles.wrapper_prix}>
                   <div className={styles.prix}>45</div>
@@ -105,7 +105,7 @@ export class Tarifs extends React.Component<Props, State> {
               </div>
               <div className={styles.wrapper_offre}>
                 <div className={styles.content}>
-                  <div className={styles.pastille}>Consultation de suivis</div>
+                  <div className={styles.pastille}>Consultations de suivi</div>
                 </div>
                 <div className={styles.wrapper_prix}>
                   <div className={styles.prix}>15</div>
@@ -132,7 +132,7 @@ export class Tarifs extends React.Component<Props, State> {
               <div className={styles.plus}>+</div>
               <div className={styles.content_offre}>
                 <div className={styles.pastille}>
-                  <span className={styles.gras_color}>4x</span> consultations de suivis
+                  <span className={styles.gras_color}>4x</span> consultations de suivi
                 </div>
               </div>
               <div className={styles.wrapper_prix_offre}>
@@ -157,7 +157,7 @@ export class Tarifs extends React.Component<Props, State> {
               <div className={styles.plus}>+</div>
               <div className={styles.content_offre}>
                 <div className={styles.pastille}>
-                  <span className={styles.gras_color}>4x</span> consultations de suivis
+                  <span className={styles.gras_color}>4x</span> consultations de suivi
                 </div>
               </div>
               <div className={styles.wrapper_prix_offre}>
@@ -182,7 +182,7 @@ export class Tarifs extends React.Component<Props, State> {
               <div className={styles.plus}>+</div>
               <div className={styles.content_offre}>
                 <div className={styles.pastille}>
-                  <span className={styles.gras_color}>4x</span> consultations de suivis
+                  <span className={styles.gras_color}>4x</span> consultations de suivi
                 </div>
               </div>
               <div className={styles.wrapper_prix_offre}>

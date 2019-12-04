@@ -1,7 +1,7 @@
 @import '../styles/variables.sass'
 
 .gras
-    font-weight: 600
+    font-weight: 400
 .wrapper
     display: flex
     flex-direction: column
@@ -22,7 +22,7 @@
             justify-content: center
             font-size: 48px
             color: $color_2
-            font-weight:
+            font-weight: 400
     .wrapper_contacts
         display: flex
         padding-bottom: 100px
@@ -41,6 +41,7 @@
             .contact
                 font-size: 24px
                 color: $color_5
+                font-weight: 500
     .wrapper_acces
         display: flex
         flex-direction: column
@@ -51,6 +52,7 @@
             font-size: 36px
             color: $color_2
             padding-bottom: 80px
+            font-weight: 400
         .content
             display: flex
             align-items: center
@@ -71,18 +73,69 @@
                         display: flex
                         align-items: center
                         padding-bottom: 10px
-                        .acces_ligne_bus
+                        .wrapper_ligne_bus
                             display: flex
-                            justify-content: center
-                            width: 60px
-                            font-weight: 600
-                            font-size: 20px
+                            height: 22px
+                            align-items: center
+                            margin-right: 10px
+                            .type_ligne
+                                display: flex
+                                justify-content: center
+                                align-items: center
+                                font-weight: 500
+                                font-size: 13px
+                                background: $rouge_tcl
+                                border-radius: 25% 0% 0% 25% / 100% 0% 0% 100%
+                                border-color: white
+                                padding: 2px 6px
+                                color: white
+                                margin-right: 4px
+                                width: 24px
+                                height: 18px
+                            .type_ligne_C
+                                display: flex
+                                justify-content: center
+                                font-weight: 500
+                                font-size: 18px
+                                background: $rouge_tcl
+                                border-radius: 25% 0% 0% 25% / 100% 0% 0% 100%
+                                border-color: white
+                                padding: 2px 6px
+                                color: white
+                                margin-right: 4px
+                                width: 24px
+                            .numero_ligne
+                                display: flex
+                                justify-content: center
+                                align-items: center
+                                width: 28px
+                                border: solid 1px $rouge_tcl
+                                color: $rouge_tcl
+                                height: 20px
+                                font-weight: 500
+                            .numero_ligne_C
+                                display: flex
+                                justify-content: center
+                                align-items: center
+                                width: 30px
+                                background-color: $gris_tcl
+                                color: white
+                                height: 22px
+                                font-weight: 500
                         .acces_logo
                             font-size: 24px
                             display: flex
                             align-items: center
                             justify-content: center
                             width: 60px
+                            color: $gris_tcl
+                        .acces_logo_parking
+                            font-size: 24px
+                            display: flex
+                            align-items: center
+                            justify-content: center
+                            width: 60px
+                            color: $bleu_parking
                         .acces_text
                             line-height: 24px
     .banniere

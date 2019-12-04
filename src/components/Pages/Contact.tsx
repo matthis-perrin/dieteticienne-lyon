@@ -33,7 +33,7 @@ export class Contact extends React.Component<Props, State> {
             <div className={styles.logo_contact}>
               <FontAwesomeIcon icon={faMobileAlt} />
             </div>
-            <div className={styles.text_contact}>Contacter moi</div>
+            <div className={styles.text_contact}>Contactez moi</div>
             <div className={styles.contact}>07 68 46 24 05</div>
           </div>
           <div className={styles.wrapper_contact}>
@@ -49,9 +49,6 @@ export class Contact extends React.Component<Props, State> {
           <div className={styles.titre_acces}>Accès au cabinet</div>
           <div className={styles.content}>
             <div className={styles.wrapper_access}>
-              <div className={styles.logo_acces}>
-                <FontAwesomeIcon icon={faCar} />
-              </div>
               <div className={styles.wrapper_acces_lines}>
                 <div className={styles.wrapper_acces_line}>
                   <div className={styles.acces_logo}>
@@ -66,7 +63,7 @@ export class Contact extends React.Component<Props, State> {
                   </div>
                 </div>
                 <div className={styles.wrapper_acces_line}>
-                  <div className={styles.acces_logo}>
+                  <div className={styles.acces_logo_parking}>
                     <FontAwesomeIcon icon={faParking} />
                   </div>
                   <div className={styles.acces_text}>
@@ -76,24 +73,33 @@ export class Contact extends React.Component<Props, State> {
               </div>
             </div>
             <div className={styles.wrapper_access}>
-              <div className={styles.logo_acces}>
-                <FontAwesomeIcon icon={faBus} />
-              </div>
               <div className={styles.wrapper_acces_lines}>
                 <div className={styles.wrapper_acces_line}>
-                  <div className={styles.acces_ligne_bus}>72</div>
+                  <div className={styles.wrapper_ligne_bus}>
+                    <div className={styles.type_ligne}>BUS</div>
+                    <div className={styles.numero_ligne}>72</div>
+                  </div>
                   <div className={styles.acces_text}>Arrêt Tassin Depéret (3min à pied)</div>
                 </div>
                 <div className={styles.wrapper_acces_line}>
-                  <div className={styles.acces_ligne_bus}>C24</div>
+                  <div className={styles.wrapper_ligne_bus}>
+                    <div className={styles.type_ligne_C}>C</div>
+                    <div className={styles.numero_ligne_C}>24</div>
+                  </div>
                   <div className={styles.acces_text}>Arrêt Rond-point d'Alaï (10min à pied)</div>
                 </div>
                 <div className={styles.wrapper_acces_line}>
-                  <div className={styles.acces_ligne_bus}>C21</div>
+                  <div className={styles.wrapper_ligne_bus}>
+                    <div className={styles.type_ligne_C}>C</div>
+                    <div className={styles.numero_ligne_C}>21</div>
+                  </div>
                   <div className={styles.acces_text}>Arrêt De Gaulle-Pont SNCF (12min à pied)</div>
                 </div>
                 <div className={styles.wrapper_acces_line}>
-                  <div className={styles.acces_ligne_bus}>5</div>
+                  <div className={styles.wrapper_ligne_bus}>
+                    <div className={styles.type_ligne}>BUS</div>
+                    <div className={styles.numero_ligne}>5</div>
+                  </div>
                   <div className={styles.acces_text}>Arrêt Tassin Depéret (3min à pied)</div>
                 </div>
               </div>

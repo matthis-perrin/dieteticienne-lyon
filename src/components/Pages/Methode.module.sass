@@ -3,33 +3,47 @@
 .wrapper
     display: flex
     flex-direction: column
-    margin: 50px
-    .wrapper_paragraphe
+    margin: 50px 100px 50px 100px
+    .gras
+        font-weight: 500
+    .color
+        color: $color_1
+    .intro
         display: flex
-        .wrapper_img
-            display: flex
-            align-items: center
-            margin-right: 100px
-            margin-left: 50px
-            img
-                height: 200px
-                width: 200px
-        .wrapper_text
-            display: flex
-            flex-direction: column
-            justify-content: center
-            .title
-                font-size: 20px
-                color: $color_1
-                margin-bottom: 20px
-            .text
-                margin-right: 50px
-                text-align: justify
-                line-height: 25px
-                .gras
-                    font-weight: bold
-                .gras_color
-                    font-weight: bold
-                    color: $color_5
-    .space_inter_paragraphe
+        justify-content: center
+        font-style: italic
+        font-family: Merienda
+        font-size: 22px
+        padding-bottom: 15px
+    .titre
+        display: flex
+        color: $color_5
+        font-size: 32px
+        font-weight: 500
+        margin-bottom: 10px
+        margin-top: 25px
+    .text
+        text-align: justify
+        line-height: 25px
+    .space
         height: 100px
+    .space_2
+        height: 50px
+    .wrapper_methode
+        display: flex
+        align-items: center
+        .wrapper_text
+            display: inline-block
+            text-align: justify
+            line-height: 25px
+            .titre_text
+                color: $color_5
+                font-size: 32px
+                float: left
+                padding: 22px
+                font-weight: 500
+        .image
+            display: flex
+            padding: 0px 25px 0px 25px
+            img
+                height: 120px
