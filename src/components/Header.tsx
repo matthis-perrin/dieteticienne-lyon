@@ -5,6 +5,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMobileAlt, faBars} from '@fortawesome/free-solid-svg-icons';
 import logo from '../images/logo_pomme_15px.svg';
 import {Link} from 'react-router-dom';
+import {MenuLink} from './Menu';
+import {methodeRoute} from '../routes';
 
 export function Header(): JSX.Element {
   return (
@@ -87,7 +89,12 @@ function HamburgerSideMenu(props: HamburgerSideMenuProps): JSX.Element {
   return (
     <div className={className}>
       <div onClick={props.onClose}>CLOSE !!!</div>
-      <div>Merde 1</div>
+      <MenuLink
+        destination={methodeRoute}
+        className={styles.menu}
+        selectedClassName={styles.menu_selected}
+        content="Méthode"
+      />
       <div>Merde 2</div>
       <div>Merde 3</div>
       <div>Merde 4</div>

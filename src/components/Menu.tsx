@@ -10,13 +10,14 @@ interface MenuLinkProps {
   destination: string;
   content: string | JSX.Element;
   className: string;
+  selectedClassName: string;
 }
 
 export class MenuLinkInternal extends React.Component<RouteComponentProps<{}> & MenuLinkProps, {}> {
   render() {
     const {pathname} = this.props.history.location;
     const wrapLinkClass = (className: string, isSelected: boolean): string =>
-      `${className} ${isSelected ? styles.selected : ''}`;
+      `${className} ${isSelected ? this.props.selectedClassName : ''}`;
     return (
       <Link
         to={this.props.destination}
@@ -36,12 +37,33 @@ export function Menu(): JSX.Element {
       <MenuLink
         destination={accueilRoute}
         className={styles.icon}
+        selectedClassName={styles.selectedClassName}
         content={<FontAwesomeIcon icon={faHome} className={styles.icon} />}
       />
-      <MenuLink destination={methodeRoute} className={styles.text} content="Méthode" />
-      <MenuLink destination={actualiteRoute} className={styles.text} content="Actualité" />
-      <MenuLink destination={tarifsRoute} className={styles.text} content="Tarifs" />
-      <MenuLink destination={contactRoute} className={styles.text} content="Contact" />
+      <MenuLink
+        destination={methodeRoute}
+        className={styles.text}
+        selectedClassName={styles.selectedClassName}
+        content="Méthode"
+      />
+      <MenuLink
+        destination={actualiteRoute}
+        className={styles.text}
+        selectedClassName={styles.selectedClassName}
+        content="Actualité"
+      />
+      <MenuLink
+        destination={tarifsRoute}
+        className={styles.text}
+        selectedClassName={styles.selectedClassName}
+        content="Tarifs"
+      />
+      <MenuLink
+        destination={contactRoute}
+        className={styles.text}
+        selectedClassName={styles.selectedClassName}
+        content="Contact"
+      />
     </div>
   );
 }
