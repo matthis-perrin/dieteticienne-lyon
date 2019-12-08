@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './Header.module.scss';
 import responsive from '../styles/mobile.module.scss';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -26,19 +26,56 @@ function HeaderWeb(): JSX.Element {
 }
 
 function HeaderMobile(): JSX.Element {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  function handleButtonClick(): void {
+    setIsOpen(true);
+  }
+
+  function handleClose(): void {
+    setIsOpen(false);
+  }
+
   return (
     <div className={`${styles.wrapper} ${responsive.mobile}`}>
-      <HamburgerButton />
+      <HamburgerButton onClick={handleButtonClick} />
+      <HamburgerSideMenu isOpen={isOpen} onClose={handleClose} />
       <ProfessionSeul />
       <LogoSeul />
     </div>
   );
 }
 
-function HamburgerButton(): JSX.Element {
+interface HamburgerButtonProps {
+  onClick: () => void;
+}
+
+function HamburgerButton(props: HamburgerButtonProps): JSX.Element {
   return (
-    <div className={styles.logo_hamburger}>
+    <div className={styles.logo_hamburger} onClick={props.onClick}>
       <FontAwesomeIcon icon={faBars} className={styles.icon} />
+    </div>
+  );
+}
+
+interface HamburgerSideMenuProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+function HamburgerSideMenu(props: HamburgerSideMenuProps): JSX.Element {
+  const className = props.isOpen
+    ? `${styles.side_menu} ${styles.side_menu_open}`
+    : `${styles.side_menu} ${styles.side_menu_close}`;
+  return (
+    <div className={className}>
+      <div onClick={props.onClose}>CLOSE !!!</div>
+      <div>Merde 1</div>
+      <div>Merde 2</div>
+      <div>Merde 3</div>
+      <div>Merde 4</div>
+      <div>Merde 5</div>
+      <div>Merde 6</div>
     </div>
   );
 }

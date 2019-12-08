@@ -73,4 +73,18 @@
       font-size: 20px;
     }
   }
+  .side_menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    background-color: red;
+    transition: left 300ms ease-in-out;
+  }
+  .side_menu_open {
+    left: 0;
+  }
+  .side_menu_close {
+    left: -200px;
+  }
 }
