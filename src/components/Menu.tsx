@@ -21,7 +21,7 @@ export class MenuLinkInternal extends React.Component<RouteComponentProps<{}> & 
     return (
       <Link
         to={this.props.destination}
-        className={wrapLinkClass(styles.icon, pathname === this.props.destination)}
+        className={wrapLinkClass(this.props.className, pathname === this.props.destination)}
       >
         {this.props.content}
       </Link>

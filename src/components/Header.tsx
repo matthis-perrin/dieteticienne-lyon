@@ -6,7 +6,7 @@ import {faMobileAlt, faBars} from '@fortawesome/free-solid-svg-icons';
 import logo from '../images/logo_pomme_15px.svg';
 import {Link} from 'react-router-dom';
 import {MenuLink} from './Menu';
-import {methodeRoute} from '../routes';
+import {methodeRoute, accueilRoute, actualiteRoute, tarifsRoute, contactRoute} from '../routes';
 
 export function Header(): JSX.Element {
   return (
@@ -38,11 +38,11 @@ function HeaderMobile(): JSX.Element {
     setIsOpen(false);
   }
 
-  const title2 = 'Test!';
+  // const title2 = 'Test!';
 
   return (
     <div className={`${styles.wrapper} ${responsive.mobile}`}>
-      <Test title="Hello" title2={title2} />
+      {/* <Test title="Hello" title2={title2} /> */}
       <HamburgerButton onClick={handleButtonClick} />
       <HamburgerSideMenu isOpen={isOpen} onClose={handleClose} />
       <ProfessionSeul />
@@ -50,6 +50,20 @@ function HeaderMobile(): JSX.Element {
     </div>
   );
 }
+
+// interface TestProps {
+//   title: string;
+//   title2: string;
+// }
+
+// function Test(props: TestProps): JSX.Element {
+//   return (
+//     <span>
+//       <div>{props.title}</div>
+//       <div>{props.title2}</div>
+//     </span>
+//   );
+// }
 
 interface HamburgerButtonProps {
   onClick: () => void;
@@ -68,38 +82,43 @@ interface HamburgerSideMenuProps {
   onClose: () => void;
 }
 
-interface TestProps {
-  title: string;
-  title2: string;
-}
-
-function Test(props: TestProps): JSX.Element {
-  return (
-    <span>
-      <div>{props.title}</div>
-      <div>{props.title2}</div>
-    </span>
-  );
-}
-
 function HamburgerSideMenu(props: HamburgerSideMenuProps): JSX.Element {
   const className = props.isOpen
     ? `${styles.side_menu} ${styles.side_menu_open}`
     : `${styles.side_menu} ${styles.side_menu_close}`;
   return (
     <div className={className}>
-      <div onClick={props.onClose}>CLOSE !!!</div>
+      <MenuLink
+        destination={accueilRoute}
+        className={styles.menu}
+        selectedClassName={styles.menu_selected}
+        content="Accueil"
+      />
       <MenuLink
         destination={methodeRoute}
         className={styles.menu}
         selectedClassName={styles.menu_selected}
         content="Méthode"
       />
-      <div>Merde 2</div>
-      <div>Merde 3</div>
-      <div>Merde 4</div>
-      <div>Merde 5</div>
-      <div>Merde 6</div>
+      <MenuLink
+        destination={actualiteRoute}
+        className={styles.menu}
+        selectedClassName={styles.menu_selected}
+        content="Actualité"
+      />
+      <MenuLink
+        destination={tarifsRoute}
+        className={styles.menu}
+        selectedClassName={styles.menu_selected}
+        content="Tarifs"
+      />
+      <MenuLink
+        destination={contactRoute}
+        className={styles.menu}
+        selectedClassName={styles.menu_selected}
+        content="Contact"
+      />
+      <div onClick={props.onClose} className={styles.menu_close}></div>
     </div>
   );
 }
