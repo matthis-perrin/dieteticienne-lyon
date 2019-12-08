@@ -6,36 +6,42 @@ import {faHome} from '@fortawesome/free-solid-svg-icons';
 import {RouteComponentProps} from 'react-router';
 import {accueilRoute, methodeRoute, actualiteRoute, tarifsRoute, contactRoute} from '../routes';
 
-interface Props {}
+interface MenuLinkProps {
+  destination: string;
+  content: string | JSX.Element;
+  className: string;
+}
 
-export class MenuInternal extends React.Component<RouteComponentProps<Props>, {}> {
+export class MenuLinkInternal extends React.Component<RouteComponentProps<{}> & MenuLinkProps, {}> {
   render() {
     const {pathname} = this.props.history.location;
     const wrapLinkClass = (className: string, isSelected: boolean): string =>
       `${className} ${isSelected ? styles.selected : ''}`;
     return (
-      <div className={styles.wrapper}>
-        <Link to={accueilRoute} className={wrapLinkClass(styles.icon, pathname === accueilRoute)}>
-          <FontAwesomeIcon icon={faHome} className={styles.icon} />
-        </Link>
-        <Link to={methodeRoute} className={wrapLinkClass(styles.text, pathname === methodeRoute)}>
-          Méthode
-        </Link>
-        <Link
-          to={actualiteRoute}
-          className={wrapLinkClass(styles.text, pathname === actualiteRoute)}
-        >
-          Actualité
-        </Link>
-        <Link to={tarifsRoute} className={wrapLinkClass(styles.text, pathname === tarifsRoute)}>
-          Tarifs
-        </Link>
-        <Link to={contactRoute} className={wrapLinkClass(styles.text, pathname === contactRoute)}>
-          Contact
-        </Link>
-      </div>
+      <Link
+        to={this.props.destination}
+        className={wrapLinkClass(styles.icon, pathname === this.props.destination)}
+      >
+        {this.props.content}
+      </Link>
     );
   }
 }
 
-export const Menu = withRouter(MenuInternal);
+export const MenuLink = withRouter(MenuLinkInternal);
+
+export function Menu(): JSX.Element {
+  return (
+    <div className={styles.wrapper}>
+      <MenuLink
+        destination={accueilRoute}
+        className={styles.icon}
+        content={<FontAwesomeIcon icon={faHome} className={styles.icon} />}
+      />
+      <MenuLink destination={methodeRoute} className={styles.text} content="Méthode" />
+      <MenuLink destination={actualiteRoute} className={styles.text} content="Actualité" />
+      <MenuLink destination={tarifsRoute} className={styles.text} content="Tarifs" />
+      <MenuLink destination={contactRoute} className={styles.text} content="Contact" />
+    </div>
+  );
+}
