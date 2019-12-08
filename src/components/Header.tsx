@@ -36,8 +36,11 @@ function HeaderMobile(): JSX.Element {
     setIsOpen(false);
   }
 
+  const title2 = 'Test!';
+
   return (
     <div className={`${styles.wrapper} ${responsive.mobile}`}>
+      <Test title="Hello" title2={title2} />
       <HamburgerButton onClick={handleButtonClick} />
       <HamburgerSideMenu isOpen={isOpen} onClose={handleClose} />
       <ProfessionSeul />
@@ -61,6 +64,20 @@ function HamburgerButton(props: HamburgerButtonProps): JSX.Element {
 interface HamburgerSideMenuProps {
   isOpen: boolean;
   onClose: () => void;
+}
+
+interface TestProps {
+  title: string;
+  title2: string;
+}
+
+function Test(props: TestProps): JSX.Element {
+  return (
+    <span>
+      <div>{props.title}</div>
+      <div>{props.title2}</div>
+    </span>
+  );
 }
 
 function HamburgerSideMenu(props: HamburgerSideMenuProps): JSX.Element {
