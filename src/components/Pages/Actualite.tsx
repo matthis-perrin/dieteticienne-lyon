@@ -25,13 +25,13 @@ export class Actualite extends React.Component<Props, State> {
     return (
       <div className={styles.wrapper}>
         <div className={styles.text}>Coming soon</div>
-        <iframe
+        {/* <iframe
           src={`${pdfUrl}#toolbar=0`}
           width="800"
           height="3000"
           seamless
           frameBorder={0}
-        ></iframe>
+        ></iframe> */}
       </div>
     );
   }

@@ -9,7 +9,7 @@ import {
   faCar,
   faBus,
 } from '@fortawesome/free-solid-svg-icons';
-import banniere from '../../images/baniere_fruits_bleu_clair_2.svg';
+import banniere from '../../images/baniere_fruits_bleu_clair.svg';
 
 interface Props {}
 

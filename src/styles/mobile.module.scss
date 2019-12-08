@@ -12,12 +12,12 @@
 
 .mobile {
   @include web() {
-    display: none;
+    display: none !important;
   }
 }
 
 .web {
   @include mobile() {
-    display: none;
+    display: none !important;
   }
 }

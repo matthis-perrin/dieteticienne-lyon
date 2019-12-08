@@ -8,8 +8,6 @@ $img_padding_left: 50px;
   display: flex;
   flex-direction: column;
   margin: 20px;
-  @include mobile {
-  }
 }
 .header {
   display: flex;
@@ -80,15 +78,19 @@ $img_padding_left: 50px;
 .banniere {
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
+  @include web {
+    margin-bottom: 30px;
+  }
   @include mobile {
-    margin: 20px 0px 20px 0px;
+    margin: 5% 0px 5% 0px;
   }
   img {
-    @include mobile {
+    @include web {
       width: 80%;
     }
-    width: 60%;
+    @include mobile {
+      width: 100%;
+    }
   }
 }
 .footer1 {

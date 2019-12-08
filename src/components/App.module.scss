@@ -1,8 +1,10 @@
 @import '../styles/variables.scss';
+@import '../styles/mobile.module.scss';
 
 $top_bar_height: 80px;
 $menu_height: 64px;
 $footer_height: 80px;
+$footer_height_mobile: 130px;
 
 .wrapper {
   background-color: $color_3;
@@ -36,7 +38,16 @@ $footer_height: 80px;
   background-color: $color_4;
 }
 
+.header_contact {
+  display: flex;
+  align-items: center;
+  background-color: $color_4;
+}
+
 .content {
+  @include mobile {
+    min-height: calc(100vh - #{$top_bar_height} - #{$menu_height} - #{$footer_height_mobile});
+  }
   min-height: calc(100vh - #{$top_bar_height} - #{$menu_height} - #{$footer_height});
   background-color: white;
 }
@@ -45,5 +56,8 @@ $footer_height: 80px;
   display: flex;
   align-items: center;
   height: $footer_height;
+  @include mobile {
+    height: $footer_height_mobile;
+  }
   background-color: $color_4;
 }

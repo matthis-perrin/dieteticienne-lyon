@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Accueil.module.scss';
 import responsive from '../../styles/mobile.module.scss';
 import r_grassigli from '../../images/r_grassigli.png';
-import banniere from '../../images/baniere_fruits_bleu_clair_2.svg';
+import banniere from '../../images/baniere_fruits_bleu_fonce.svg';
 import {Link} from 'react-router-dom';
 
 export function Accueil(): JSX.Element {
@@ -30,6 +30,7 @@ function AccueilWeb(): JSX.Element {
       </div>
       <Button />
       <Banniere />
+      <Citation />
     </div>
   );
 }

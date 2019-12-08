@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import styles from './App.module.scss';
+import responsive from '../styles/mobile.module.scss';
 import {Header} from './Header';
 import {Accueil} from './Pages/Accueil';
 import {Menu} from './Menu';
@@ -11,6 +12,7 @@ import {Tarifs} from './Pages/Tarifs';
 import {Footer} from './Footer';
 import withTracker from './withTracker';
 import {tarifsRoute, actualiteRoute, contactRoute, methodeRoute, accueilRoute} from '../routes';
+import {HeaderContact} from './Header_Contact';
 
 interface Props {}
 
@@ -29,8 +31,11 @@ export class App extends React.Component<Props, State> {
             <Header />
           </div>
           <div className={styles.app}>
-            <div className={styles.menu}>
+            <div className={`${styles.menu} ${responsive.web}`}>
               <Menu />
+            </div>
+            <div className={`${styles.header_contact} ${responsive.mobile}`}>
+              <HeaderContact />
             </div>
             <div className={styles.content}>
               <Switch>
