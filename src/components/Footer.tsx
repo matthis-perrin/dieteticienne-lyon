@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './Footer.module.sass';
+import styles from './Footer.module.scss';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMapMarkerAlt, faMobileAlt, faEnvelope} from '@fortawesome/free-solid-svg-icons';
-import logo from '../images/logo_pomme_bleu_10px.png';
+import logo from '../images/logo_pomme_bleu_10px.svg';
 
 interface Props {}
 

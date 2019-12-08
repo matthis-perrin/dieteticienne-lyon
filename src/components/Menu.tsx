@@ -1,38 +1,41 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import styles from './Menu.module.sass';
+import {Link, withRouter} from 'react-router-dom';
+import styles from './Menu.module.scss';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHome} from '@fortawesome/free-solid-svg-icons';
+import {RouteComponentProps} from 'react-router';
+import {accueilRoute, methodeRoute, actualiteRoute, tarifsRoute, contactRoute} from '../routes';
 
 interface Props {}
 
-interface State {}
-
-export class Menu extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {};
-  }
-
+export class MenuInternal extends React.Component<RouteComponentProps<Props>, {}> {
   render() {
+    const {pathname} = this.props.history.location;
+    const wrapLinkClass = (className: string, isSelected: boolean): string =>
+      `${className} ${isSelected ? styles.selected : ''}`;
     return (
       <div className={styles.wrapper}>
-        <Link to="/" className={styles.icon}>
+        <Link to={accueilRoute} className={wrapLinkClass(styles.icon, pathname === accueilRoute)}>
           <FontAwesomeIcon icon={faHome} className={styles.icon} />
         </Link>
-        <Link to="/Méthode" className={styles.text}>
+        <Link to={methodeRoute} className={wrapLinkClass(styles.text, pathname === methodeRoute)}>
           Méthode
         </Link>
-        <Link to="/Actualité" className={styles.text}>
+        <Link
+          to={actualiteRoute}
+          className={wrapLinkClass(styles.text, pathname === actualiteRoute)}
+        >
           Actualité
         </Link>
-        <Link to="/Tarifs" className={styles.text}>
+        <Link to={tarifsRoute} className={wrapLinkClass(styles.text, pathname === tarifsRoute)}>
           Tarifs
         </Link>
-        <Link to="/Contact" className={styles.text}>
+        <Link to={contactRoute} className={wrapLinkClass(styles.text, pathname === contactRoute)}>
           Contact
         </Link>
       </div>
     );
   }
 }
+
+export const Menu = withRouter(MenuInternal);

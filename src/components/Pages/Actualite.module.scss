@@ -1,0 +1,17 @@
+@import '../styles/variables.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+  .text {
+    font-size: 32px;
+    font-style: italic;
+    color: $color_1;
+  }
+  .image {
+    padding-top: 50px;
+  }
+}

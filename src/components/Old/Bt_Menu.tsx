@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Bt_Menu.module.sass';
+import styles from './Bt_Menu.module.scss';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {IconDefinition} from '@fortawesome/free-solid-svg-icons';
 

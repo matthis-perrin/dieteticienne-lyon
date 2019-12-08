@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './Header.module.sass';
+import styles from './Header.module.scss';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMobileAlt} from '@fortawesome/free-solid-svg-icons';
-import logo from '../images/logo_pomme_15px.png';
+import logo from '../images/logo_pomme_15px.svg';
 import {Link} from 'react-router-dom';
 
 interface Props {}

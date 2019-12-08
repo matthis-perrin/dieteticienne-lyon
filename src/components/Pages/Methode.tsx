@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Methode.module.sass';
+import styles from './Methode.module.scss';
 import image1 from '../../images/icone_entretien.svg';
 import image2 from '../../images/icone_domicile.svg';
 import image3 from '../../images/icone_skype.svg';
@@ -19,7 +19,7 @@ export class Methode extends React.Component<Props, State> {
         <div className={styles.intro}>
           Ma prise en charge diététique se séquence généralement en plusieurs scéances.
         </div>
-        <div className={styles.titre}>Consultation initiale</div>
+        <div className={styles.titre}>Consultations initiale</div>
         <div className={styles.text}>
           La première consultation consiste à réaliser
           <span className={styles.color}> un bilan alimentaire et nutritionnel.</span> Elle dure
@@ -31,7 +31,7 @@ export class Methode extends React.Component<Props, State> {
           <br />A la suite de cette discusion, je vous proposerai{' '}
           <span className={styles.color}>
             {' '}
-            une alimentation équilibré répondant à vos attentes,
+            une alimentation équilibrée répondant à vos attentes,
           </span>{' '}
           en prenant en compte l’ensemble des paramètres définis en première partie de rendez-vous.
           Je vous transmettrai <span className={styles.color}> des fiches conseils,</span> et{' '}

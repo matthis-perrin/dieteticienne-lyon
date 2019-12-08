@@ -1,0 +1,77 @@
+@import '../styles/variables.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0px 25px 0px 25px;
+  .wrapper_contact {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    .wrapper_localisation {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      .logo_localisation {
+        color: $color_5;
+        padding-right: 15px;
+        font-size: 24px;
+      }
+      .wrapper_adresse {
+        .adresse {
+          color: $black;
+          padding-bottom: 5px;
+        }
+        .ville {
+          color: $black;
+        }
+      }
+    }
+    .logo {
+      display: flex;
+      justify-content: center;
+      flex-grow: 1;
+      img {
+        height: 40px;
+      }
+    }
+    .contact {
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      .wrapper_tel {
+        display: flex;
+        padding-bottom: 5px;
+        .logo_tel {
+          color: $color_5;
+          width: 30px;
+          display: flex;
+          justify-content: center;
+          padding-right: 5px;
+        }
+        .num {
+          color: $black;
+        }
+      }
+      .wrapper_mail {
+        display: flex;
+        .logo_mail {
+          color: $color_5;
+          width: 30px;
+          display: flex;
+          justify-content: center;
+          padding-right: 5px;
+        }
+        .mail {
+          color: $black;
+        }
+      }
+    }
+  }
+  .copyright {
+    color: $color_3;
+    padding-top: 10px;
+  }
+}

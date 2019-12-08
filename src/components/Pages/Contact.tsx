@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Contact.module.sass';
+import styles from './Contact.module.scss';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
   faMapMarkerAlt,

@@ -1,6 +1,16 @@
 import React from 'react';
-import styles from './Actualite.module.sass';
-import logo from '../../images/logo_pomme_design.png';
+import styles from './Actualite.module.scss';
+
+import pdfUrl from '../../articles/Alimentation et grossesse.pdf';
+
+// interface ActualiteData {
+//   pdfUrl: pdfUrl;
+
+// }
+
+// const actualites = [
+
+// ]
 
 interface Props {}
 
@@ -15,9 +25,13 @@ export class Actualite extends React.Component<Props, State> {
     return (
       <div className={styles.wrapper}>
         <div className={styles.text}>Coming soon</div>
-        <div className={styles.image}>
-          <img src={logo} />
-        </div>
+        <iframe
+          src={`${pdfUrl}#toolbar=0`}
+          width="800"
+          height="3000"
+          seamless
+          frameBorder={0}
+        ></iframe>
       </div>
     );
   }

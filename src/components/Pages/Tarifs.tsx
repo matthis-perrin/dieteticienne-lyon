@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Tarifs.module.sass';
+import styles from './Tarifs.module.scss';
 
 interface Props {}
 

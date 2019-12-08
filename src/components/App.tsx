@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
-import styles from './App.module.sass';
+import styles from './App.module.scss';
 import {Header} from './Header';
 import {Accueil} from './Pages/Accueil';
 import {Menu} from './Menu';
@@ -9,6 +9,8 @@ import {Actualite} from './Pages/Actualite';
 import {Methode} from './Pages/Methode';
 import {Tarifs} from './Pages/Tarifs';
 import {Footer} from './Footer';
+import withTracker from './withTracker';
+import {tarifsRoute, actualiteRoute, contactRoute, methodeRoute, accueilRoute} from '../routes';
 
 interface Props {}
 
@@ -32,21 +34,11 @@ export class App extends React.Component<Props, State> {
             </div>
             <div className={styles.content}>
               <Switch>
-                <Route path="/Tarifs">
-                  <Tarifs />
-                </Route>
-                <Route path="/Méthode">
-                  <Methode />
-                </Route>
-                <Route path="/Actualité">
-                  <Actualite />
-                </Route>
-                <Route path="/Contact">
-                  <Contact />
-                </Route>
-                <Route path="/">
-                  <Accueil />
-                </Route>
+                <Route path={tarifsRoute} component={withTracker(Tarifs)}></Route>
+                <Route path={methodeRoute} component={withTracker(Methode)}></Route>
+                <Route path={actualiteRoute} component={withTracker(Actualite)}></Route>
+                <Route path={contactRoute} component={withTracker(Contact)}></Route>
+                <Route path={accueilRoute} component={withTracker(Accueil)}></Route>
               </Switch>
             </div>
             <div className={styles.footer}>
