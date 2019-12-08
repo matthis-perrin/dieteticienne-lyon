@@ -38,10 +38,10 @@ function AccueilMobile(): JSX.Element {
   return (
     <div className={`${styles.wrapper} ${responsive.mobile}`}>
       <Introduction />
-      <Photo />
+      <Banniere />
       <Texte />
       <Button />
-      <Banniere />
+      <Citation />
     </div>
   );
 }
@@ -78,8 +78,9 @@ function Texte(): JSX.Element {
       diététique puis un master 1 en santé publique.
       <br />
       <br />
-      <span className={styles.gras_color}>Au cabinet, à domicile ou sur skype, </span>je vous aide à
-      atteindre vos objectifs, en prenant compte vos envies, vos goûts, vos sensations alimentaires.
+      <span className={styles.gras_color}>Au cabinet, à domicile ou à distance, </span>je vous aide
+      à atteindre vos objectifs, en prenant compte vos envies, vos goûts, vos sensations
+      alimentaires.
     </div>
   );
 }
@@ -98,6 +99,13 @@ function Banniere(): JSX.Element {
       <div className={styles.banniere}>
         <img src={banniere} />
       </div>
+    </React.Fragment>
+  );
+}
+
+function Citation(): JSX.Element {
+  return (
+    <React.Fragment>
       <div className={styles.footer1}>
         &laquo;Dieu a fait l'aliment ; le diable, l'assaisonnement.&raquo;
       </div>
