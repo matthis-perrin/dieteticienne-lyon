@@ -19,13 +19,15 @@ function FooterWeb(): JSX.Element {
     <div className={`${styles.wrapper} ${responsive.web}`}>
       <div className={styles.wrapper_contact}>
         <Adresse />
-        <Logo />
+        <div className={styles.wrapper_logo}>
+          <Logo />
+          <CopyRight />
+        </div>
         <div className={styles.contact}>
           <Tel />
           <Mail />
         </div>
       </div>
-      <CopyRight />
     </div>
   );
 }

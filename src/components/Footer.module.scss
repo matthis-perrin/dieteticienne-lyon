@@ -14,7 +14,10 @@
     display: flex;
     width: 100%;
     align-items: center;
-    justify-content: center;
+    @include mobile {
+      justify-content: center;
+    }
+    justify-content: space-between;
     .wrapper_localisation {
       display: flex;
       flex-shrink: 0;

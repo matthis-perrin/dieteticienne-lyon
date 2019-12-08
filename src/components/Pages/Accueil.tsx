@@ -19,16 +19,16 @@ function AccueilWeb(): JSX.Element {
     <div className={`${styles.wrapper} ${responsive.web}`}>
       <div className={styles.header}>
         <Photo />
-        <div className={styles.text}>
+        <div className={styles.wrapper_text}>
           <div>
             <Introduction />
             <br />
             <br />
             <Texte />
           </div>
+          <Button />
         </div>
       </div>
-      <Button />
       <Banniere />
       <Citation />
     </div>
@@ -124,6 +124,9 @@ function Photo(): JSX.Element {
       </div>
       <div className={styles.img}>
         <img src={r_grassigli} />
+      </div>
+      <div className={styles.spacer_button}>
+        <Button />
       </div>
     </div>
   );
