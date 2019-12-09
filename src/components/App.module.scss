@@ -5,6 +5,7 @@ $top_bar_height: 80px;
 $menu_height: 64px;
 $footer_height: 80px;
 $footer_height_mobile: 130px;
+$menu_height_mobile: 36px;
 
 .wrapper {
   background-color: $color_3;
@@ -42,11 +43,14 @@ $footer_height_mobile: 130px;
   display: flex;
   align-items: center;
   background-color: $color_4;
+  height: $menu_height_mobile;
 }
 
 .content {
   @include mobile {
-    min-height: calc(100vh - #{$top_bar_height} - #{$menu_height} - #{$footer_height_mobile});
+    min-height: calc(
+      100vh - #{$top_bar_height} - #{$menu_height_mobile} - #{$footer_height_mobile}
+    );
   }
   min-height: calc(100vh - #{$top_bar_height} - #{$menu_height} - #{$footer_height});
   background-color: white;

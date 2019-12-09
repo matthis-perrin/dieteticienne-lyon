@@ -1,8 +1,12 @@
 @import '../styles/variables.scss';
+@import '../styles/mobile.module.scss';
 
 .wrapper {
   display: flex;
   flex-direction: column;
+  @include mobile {
+    margin: 5% 5% 5% 5%;
+  }
   margin: 50px 100px 50px 100px;
   .gras {
     font-weight: 500;
@@ -15,6 +19,10 @@
     justify-content: center;
     font-style: italic;
     font-family: Merienda;
+    @include mobile {
+      text-align: justify;
+      font-size: 22px;
+    }
     font-size: 22px;
     padding-bottom: 15px;
   }
@@ -31,9 +39,15 @@
     line-height: 25px;
   }
   .space {
+    @include mobile {
+      height: 50px;
+    }
     height: 100px;
   }
   .space_2 {
+    @include mobile {
+      height: 10px;
+    }
     height: 50px;
   }
   .wrapper_methode {
@@ -53,6 +67,9 @@
     }
     .image {
       display: flex;
+      @include mobile {
+        display: none;
+      }
       padding: 0px 25px 0px 25px;
       img {
         height: 120px;

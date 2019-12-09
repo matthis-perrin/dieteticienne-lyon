@@ -88,7 +88,9 @@ export function Mail(): JSX.Element {
       <div className={styles.logo_mail}>
         <FontAwesomeIcon icon={faEnvelope} className={styles.icon} />
       </div>
-      <div className={styles.mail}>dieteticienne.lyon1@gmail.com</div>
+      <a className={styles.mail} href="mailto:dieteticienne.lyon1@gmail.com">
+        dieteticienne.lyon1@gmail.com
+      </a>
     </div>
   );
 }

@@ -69,6 +69,9 @@
       padding-right: 10px;
     }
     .number {
+      @include mobile {
+        color: $color_5;
+      }
       color: $color_3;
       font-size: 20px;
     }
@@ -82,11 +85,8 @@
   top: 0;
   bottom: 0;
   width: 200px;
-  background-color: red;
+  background-color: $color_4;
   transition: left 300ms ease-in-out;
-  .menu_selected {
-    background-color: $color_2;
-  }
   .menu {
     display: flex;
     flex-shrink: 0;
@@ -94,6 +94,7 @@
     align-items: center;
     justify-content: center;
     font-size: 24px;
+    height: 50px;
     background-color: $color_4;
     color: $color_5;
     &:hover {
@@ -101,8 +102,25 @@
       color: $color_3;
     }
   }
+  .menu_selected {
+    background-color: $color_2;
+    color: $color_3;
+  }
   .menu_close {
+    display: flex;
     flex-grow: 1;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 25px;
+  }
+  .logo_pomme {
+    margin: 25px;
+    display: flex;
+    justify-content: center;
+    img {
+      width: 40px;
+      height: 40px;
+    }
   }
 }
 .side_menu_open {
@@ -110,4 +128,18 @@
 }
 .side_menu_close {
   left: -200px;
+}
+
+.side_menu_hidden {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 200px;
+  right: 0;
+}
+.side_menu_open_hidden {
+  display: block;
+}
+.side_menu_close_hidden {
+  display: none;
 }

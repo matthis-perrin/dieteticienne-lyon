@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, Fragment} from 'react';
 import styles from './Header.module.scss';
 import responsive from '../styles/mobile.module.scss';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -86,40 +86,56 @@ function HamburgerSideMenu(props: HamburgerSideMenuProps): JSX.Element {
   const className = props.isOpen
     ? `${styles.side_menu} ${styles.side_menu_open}`
     : `${styles.side_menu} ${styles.side_menu_close}`;
+  const classNameHidden = props.isOpen
+    ? `${styles.side_menu_hidden} ${styles.side_menu_open_hidden}`
+    : `${styles.side_menu_hidden} ${styles.side_menu_close_hidden}`;
   return (
-    <div className={className}>
-      <MenuLink
-        destination={accueilRoute}
-        className={styles.menu}
-        selectedClassName={styles.menu_selected}
-        content="Accueil"
-      />
-      <MenuLink
-        destination={methodeRoute}
-        className={styles.menu}
-        selectedClassName={styles.menu_selected}
-        content="Méthode"
-      />
-      <MenuLink
-        destination={actualiteRoute}
-        className={styles.menu}
-        selectedClassName={styles.menu_selected}
-        content="Actualité"
-      />
-      <MenuLink
-        destination={tarifsRoute}
-        className={styles.menu}
-        selectedClassName={styles.menu_selected}
-        content="Tarifs"
-      />
-      <MenuLink
-        destination={contactRoute}
-        className={styles.menu}
-        selectedClassName={styles.menu_selected}
-        content="Contact"
-      />
-      <div onClick={props.onClose} className={styles.menu_close}></div>
-    </div>
+    <React.Fragment>
+      <div className={className}>
+        <div className={styles.logo_pomme} onClick={props.onClose}>
+          <img src={logo} />
+        </div>
+        <MenuLink
+          destination={accueilRoute}
+          className={styles.menu}
+          selectedClassName={styles.menu_selected}
+          content="Accueil"
+          onClick={props.onClose}
+        />
+        <MenuLink
+          destination={methodeRoute}
+          className={styles.menu}
+          selectedClassName={styles.menu_selected}
+          content="Méthode"
+          onClick={props.onClose}
+        />
+        <MenuLink
+          destination={actualiteRoute}
+          className={styles.menu}
+          selectedClassName={styles.menu_selected}
+          content="Actualité"
+          onClick={props.onClose}
+        />
+        <MenuLink
+          destination={tarifsRoute}
+          className={styles.menu}
+          selectedClassName={styles.menu_selected}
+          content="Tarifs"
+          onClick={props.onClose}
+        />
+        <MenuLink
+          destination={contactRoute}
+          className={styles.menu}
+          selectedClassName={styles.menu_selected}
+          content="Contact"
+          onClick={props.onClose}
+        />
+        <div onClick={props.onClose} className={styles.menu_close}>
+          <Contact />
+        </div>
+      </div>
+      <div className={classNameHidden} onClick={props.onClose}></div>
+    </React.Fragment>
   );
 }
 
