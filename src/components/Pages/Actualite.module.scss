@@ -2,16 +2,57 @@
 
 .wrapper {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin: 50px;
-  .text {
-    font-size: 32px;
-    font-style: italic;
-    color: $color_1;
-  }
-  .image {
-    padding-top: 50px;
+  margin: 5% 5% calc(5% - 15px) 5%;
+  .wrapper_pastilles {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    .wrapper_pastille {
+      background-color: $color_3;
+      width: 300px;
+      margin-bottom: 15px;
+      /* styles for '...' */
+      .intro {
+        /* hide text if it more than N lines  */
+        overflow: hidden;
+        /* for set '...' in absolute position */
+        position: relative;
+        /* use this value to count block height */
+        line-height: 1.2em;
+        /* max-height = line-height (1.2) * lines max number (3) */
+        max-height: 3.6em;
+        /* fix problem when last visible word doesn't adjoin right side  */
+        text-align: justify;
+        /* place for '...' */
+        margin-right: -1em;
+        padding-right: 1em;
+      }
+      /* create the ... */
+      intro::before {
+        /* points in the end */
+        content: '...';
+        /* absolute position */
+        position: absolute;
+        /* set position to right bottom corner of block */
+        right: 0;
+        bottom: 0;
+      }
+      /* hide ... if we have text, which is less than or equal to max lines */
+      intro::after {
+        /* points in the end */
+        content: '';
+        /* absolute position */
+        position: absolute;
+        /* set position to right bottom corner of text */
+        right: 0;
+        /* set width and height */
+        width: 1em;
+        height: 1em;
+        margin-top: 0.2em;
+        /* bg color = bg color under block */
+        background: white;
+      }
+    }
   }
 }

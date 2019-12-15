@@ -1,4 +1,4 @@
-import React, {useState, Fragment} from 'react';
+import React, {useState} from 'react';
 import styles from './Header.module.scss';
 import responsive from '../styles/mobile.module.scss';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -38,11 +38,8 @@ function HeaderMobile(): JSX.Element {
     setIsOpen(false);
   }
 
-  // const title2 = 'Test!';
-
   return (
     <div className={`${styles.wrapper} ${responsive.mobile}`}>
-      {/* <Test title="Hello" title2={title2} /> */}
       <HamburgerButton onClick={handleButtonClick} />
       <HamburgerSideMenu isOpen={isOpen} onClose={handleClose} />
       <ProfessionSeul />
@@ -50,20 +47,6 @@ function HeaderMobile(): JSX.Element {
     </div>
   );
 }
-
-// interface TestProps {
-//   title: string;
-//   title2: string;
-// }
-
-// function Test(props: TestProps): JSX.Element {
-//   return (
-//     <span>
-//       <div>{props.title}</div>
-//       <div>{props.title2}</div>
-//     </span>
-//   );
-// }
 
 interface HamburgerButtonProps {
   onClick: () => void;

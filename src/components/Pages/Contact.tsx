@@ -18,6 +18,7 @@ export function Contact(): JSX.Element {
     </React.Fragment>
   );
 }
+
 function ContactWeb(): JSX.Element {
   return (
     <div className={`${styles.wrapper} ${responsive.web}`}>

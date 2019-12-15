@@ -52,13 +52,13 @@ function MethodeMobile(): JSX.Element {
 function Introduction(): JSX.Element {
   return (
     <div className={styles.intro}>
-      Ma prise en charge diététique se séquence généralement en plusieurs scéances.
+      Ma prise en charge diététique se séquence généralement en plusieurs séances.
     </div>
   );
 }
 
 function Titre1(): JSX.Element {
-  return <div className={styles.titre}>Consultations initiale</div>;
+  return <div className={styles.titre}>Consultation initiale</div>;
 }
 
 function Texte1(): JSX.Element {
@@ -79,13 +79,13 @@ function Texte1(): JSX.Element {
       en prenant en compte l’ensemble des paramètres définis en première partie de rendez-vous. Je
       vous transmettrai <span className={styles.color}> des fiches conseils,</span> et{' '}
       <span className={styles.color}> un carnet alimentaire</span> à me remettre lors de la
-      prochaine consultation. Enfin je réponderai à l’ensemble de vos éventuelles interrogations .
+      prochaine consultation. Enfin je répondrai à l’ensemble de vos éventuelles interrogations .
     </div>
   );
 }
 
 function Titre2(): JSX.Element {
-  return <div className={styles.titre}>Consultations suivi</div>;
+  return <div className={styles.titre}>Consultations de suivi</div>;
 }
 
 function Texte2(): JSX.Element {
@@ -94,10 +94,10 @@ function Texte2(): JSX.Element {
       Les consulations suivantes seront espacées entre 15 et 20 jours. Elles durent en moyenne 30 à
       40min. C’est à ce moment que nous pourrons{' '}
       <span className={styles.color}> faire le point</span> sur votre prise en charge et{' '}
-      <span className={styles.color}> réadapter l’alimentation</span> si besoins. Il m’est également
+      <span className={styles.color}> réadapter l’alimentation</span> si besoin. Il m’est également
       indispensable de connnaitre <span className={styles.color}> votre ressenti</span> pour{' '}
       <span className={styles.color}> garantir l’atteinte des objectifs</span> que nous nous serons
-      fixé.{' '}
+      fixés.{' '}
       <span className={styles.gras}>
         {' '}
         Vous êtes unique et votre prise en charge se doit de l’être également!
@@ -134,7 +134,7 @@ function Paragraphe2(): JSX.Element {
       <div className={styles.wrapper_text}>
         <div className={styles.titre_text}>À domicile</div>Je peux{' '}
         <span className={styles.color}> me déplacer chez vous</span> aussi bien pour la consultation
-        initial que pour les consultations de suivi. L'interet de venir à domicile est que nous
+        initiale que pour les consultations de suivi. L'interet de venir à domicile est que nous
         pourrons ensemble{' '}
         <span className={styles.color}>
           {' '}

@@ -51,7 +51,7 @@ function Introduction(): JSX.Element {
   return (
     <div className={styles.text}>
       <span className={styles.gras}>
-        Vous souhaiter perdre du poids, prévenir les maladies cardio-vasculaire, réguler votre
+        Vous souhaitez perdre du poids, prévenir les maladies cardio-vasculaires, réguler votre
         glycémie en cas de diabète. Vous êtes intolérant au gluten, au lactose, vous êtes souvent
         "balloné", vous souffrez de maladie chronique de l'intestin. Ou bien, tout simplement vous
         souhaitez une aide pour gérer vos repas au mieux, tout en vous faisant plaisir.
