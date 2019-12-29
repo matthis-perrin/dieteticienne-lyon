@@ -70,10 +70,8 @@ const actualites: ActualiteData[] = [
   {
     id: randomId(),
     title: 'La canelle',
-    intro: truncateText(
+    intro:
       'Originaire de Ceylan, le cannelier fournit une écorce fortement parfumée. La cannelle est associée à l’idée du sucré bien qu’utilisée aussi dans des préparations culinaires salées.',
-      truncateOptions
-    ),
     img: canellePng,
     pdf: canellePdf,
     numberOfPage: 1,
@@ -81,10 +79,8 @@ const actualites: ActualiteData[] = [
   {
     id: randomId(),
     title: "L'ail",
-    intro: truncateText(
+    intro:
       'C’est la reine des herbes ! L’ail cultivée et l’ail des ours, la variété sauvage, sont connues pour leurs bienfaits depuis l’Antiquité, de l’Occident à l’Extrême-Orient. Les bâtisseurs de pyramides en consommaient et Hyppocrate utilisait l’ail pour soigner les cancers du sein et de la prostate.',
-      truncateOptions
-    ),
     img: ailPng,
     pdf: ailPdf,
     numberOfPage: 2,
@@ -92,10 +88,8 @@ const actualites: ActualiteData[] = [
   {
     id: randomId(),
     title: 'Le clou de girofle',
-    intro: truncateText(
+    intro:
       'C’est un bouton de fleur, déjà connu en Mésopotamie 1700 ans avant J-C, et plus tard les croisés l’ont utilisé pour combattre... les rages de dent.',
-      truncateOptions
-    ),
     img: giroflePng,
     pdf: giroflePdf,
     numberOfPage: 2,
@@ -103,10 +97,8 @@ const actualites: ActualiteData[] = [
   {
     id: randomId(),
     title: "L'ail",
-    intro: truncateText(
+    intro:
       'C’est la reine des herbes ! L’ail cultivée et l’ail des ours, la variété sauvage, sont connues pour leurs bienfaits depuis l’Antiquité, de l’Occident à l’Extrême-Orient. Les bâtisseurs de pyramides en consommaient et Hyppocrate utilisait l’ail pour soigner les cancers du sein et de la prostate.',
-      truncateOptions
-    ),
     img: ailPng,
     pdf: ailPdf,
     numberOfPage: 2,
@@ -114,15 +106,17 @@ const actualites: ActualiteData[] = [
   {
     id: randomId(),
     title: 'Le clou de girofle',
-    intro: truncateText(
+    intro:
       'C’est un bouton de fleur, déjà connu en Mésopotamie 1700 ans avant J-C, et plus tard les croisés l’ont utilisé pour combattre... les rages de dent.',
-      truncateOptions
-    ),
     img: giroflePng,
     pdf: giroflePdf,
     numberOfPage: 2,
   },
 ];
+
+function getActualites(): ActualiteData[] {
+  return actualites.map(a => ({...a, intro: truncateText(a.intro, truncateOptions)}));
+}
 
 export function Actualite(): JSX.Element {
   return (
@@ -134,6 +128,7 @@ export function Actualite(): JSX.Element {
 }
 
 function ActualiteWeb(): JSX.Element {
+  const actualites = getActualites();
   const [isSelected, setIsSelected] = useState<boolean>(false);
   const [currentActualite, setcurrentActualite] = useState<ActualiteData>(actualites[0]);
 
@@ -163,6 +158,7 @@ function ActualiteWeb(): JSX.Element {
 }
 
 function ActualiteMobile(): JSX.Element {
+  const actualites = getActualites();
   const [isSelected, setIsSelected] = useState<boolean>(false);
 
   function handleButtonClick(actualite: ActualiteData): void {
@@ -238,6 +234,7 @@ function Wiewer(props: WiewerProps): JSX.Element {
     props.handleButtonBackClick();
   }
 
+  const actualites = getActualites();
   const actualitesToDisplay = 3;
 
   // Récupération de l'index de l'actualité courante
