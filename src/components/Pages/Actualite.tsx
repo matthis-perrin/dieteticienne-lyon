@@ -7,6 +7,7 @@ import giroflePdf from '../../articles/Le clou de girofle.pdf';
 import canellePng from '../../articles/La canelle.png';
 import giroflePng from '../../articles/Le clou de girofle.png';
 import ailPng from "../../articles/L'ail.png";
+import {SizeMonitor} from '../size_monitor';
 
 interface ActualiteData {
   id: string;
@@ -241,18 +242,30 @@ function Wiewer(props: WiewerProps): JSX.Element {
     currentIndex += 1;
   }
 
+  const baseWidth = 873;
+  const baseHeight = 1100;
+  const mobilePadding = 16;
+
   return (
     <div className={styles.wrapper_wiewer} style={{display: props.display ? 'flex' : 'none'}}>
       <div className={styles.button} onClick={handleClick}>
         Retour
       </div>
-      <iframe
-        src={`${props.actualite.pdf}#toolbar=0`}
-        width="783"
-        height={1110 * props.actualite.numberOfPage}
-        seamless
-        frameBorder={0}
-      ></iframe>
+      <SizeMonitor>
+        {(screenWidth: number, screenHeight: number) => {
+          const width = Math.min(screenWidth - 2 * mobilePadding, baseWidth);
+          const height = props.actualite.numberOfPage * baseHeight * (width / baseWidth);
+          return (
+            <iframe
+              src={`${props.actualite.pdf}#toolbar=0`}
+              width={width}
+              height={height}
+              seamless
+              frameBorder={0}
+            ></iframe>
+          );
+        }}
+      </SizeMonitor>
       <Pastilles handleButtonClick={handleButtonClick} display={true} actualites={nextActualites} />
       <div className={styles.button} onClick={handleClick}>
         Retour
