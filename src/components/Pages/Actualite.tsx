@@ -266,7 +266,7 @@ function Wiewer(props: WiewerProps): JSX.Element {
         Retour
       </div>
       <iframe
-        src={`${props.actualite.pdf}#toolbar=0`}
+        src={`${props.actualite.pdf}&embedded=true`}
         width="800"
         height={1110 * props.actualite.numberOfPage}
         seamless
