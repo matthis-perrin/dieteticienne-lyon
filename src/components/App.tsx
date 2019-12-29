@@ -1,5 +1,11 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  withRouter,
+  RouteComponentProps,
+} from 'react-router-dom';
 import styles from './App.module.scss';
 import responsive from '../styles/mobile.module.scss';
 import {Header} from './Header';
@@ -14,44 +20,50 @@ import withTracker from './withTracker';
 import {tarifsRoute, actualiteRoute, contactRoute, methodeRoute, accueilRoute} from '../routes';
 import {HeaderContact} from './Header_Contact';
 
-interface Props {}
-
-interface State {}
-
-export class App extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
+export class _AppInner extends React.Component<RouteComponentProps<{}>, {}> {
+  componentDidMount() {
+    this.props.history.listen((location, action) => {
+      window.scrollTo(0, 0);
+    });
   }
 
   render() {
     return (
-      <Router>
-        <div className={styles.wrapper}>
-          <div className={styles.top_bar}>
-            <Header />
+      <div className={styles.wrapper}>
+        <div className={styles.top_bar}>
+          <Header />
+        </div>
+        <div className={styles.app}>
+          <div className={`${styles.menu} ${responsive.web}`}>
+            <Menu />
           </div>
-          <div className={styles.app}>
-            <div className={`${styles.menu} ${responsive.web}`}>
-              <Menu />
-            </div>
-            <div className={`${styles.header_contact} ${responsive.mobile}`}>
-              <HeaderContact />
-            </div>
-            <div className={styles.content}>
-              <Switch>
-                <Route path={tarifsRoute} component={withTracker(Tarifs)}></Route>
-                <Route path={methodeRoute} component={withTracker(Methode)}></Route>
-                <Route path={actualiteRoute} component={withTracker(Actualite)}></Route>
-                <Route path={contactRoute} component={withTracker(Contact)}></Route>
-                <Route path={accueilRoute} component={withTracker(Accueil)}></Route>
-              </Switch>
-            </div>
-            <div className={styles.footer}>
-              <Footer />
-            </div>
+          <div className={`${styles.header_contact} ${responsive.mobile}`}>
+            <HeaderContact />
+          </div>
+          <div className={styles.content}>
+            <Switch>
+              <Route path={tarifsRoute} component={withTracker(Tarifs)}></Route>
+              <Route path={methodeRoute} component={withTracker(Methode)}></Route>
+              <Route path={actualiteRoute} component={withTracker(Actualite)}></Route>
+              <Route path={contactRoute} component={withTracker(Contact)}></Route>
+              <Route path={accueilRoute} component={withTracker(Accueil)}></Route>
+            </Switch>
+          </div>
+          <div className={styles.footer}>
+            <Footer />
           </div>
         </div>
-      </Router>
+      </div>
     );
   }
+}
+
+export const AppInner = withRouter(_AppInner);
+
+export function App(): JSX.Element {
+  return (
+    <Router>
+      <AppInner />
+    </Router>
+  );
 }
