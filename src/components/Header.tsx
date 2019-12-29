@@ -96,7 +96,7 @@ function HamburgerSideMenu(props: HamburgerSideMenuProps): JSX.Element {
           destination={actualiteRoute}
           className={styles.menu}
           selectedClassName={styles.menu_selected}
-          content="Actualité"
+          content="Documentations"
           onClick={props.onClose}
         />
         <MenuLink

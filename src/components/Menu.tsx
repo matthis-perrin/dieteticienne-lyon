@@ -60,7 +60,7 @@ export function Menu(): JSX.Element {
         destination={actualiteRoute}
         className={styles.text}
         selectedClassName={styles.selectedClassName}
-        content="Actualité"
+        content="Documentations"
       />
       <MenuLink
         destination={tarifsRoute}

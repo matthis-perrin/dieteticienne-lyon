@@ -1,12 +1,12 @@
 import React, {Fragment, useState} from 'react';
 import styles from './Actualite.module.scss';
 import responsive from '../../styles/mobile.module.scss';
-import pdf1 from "../../articles/L'ail.pdf";
-import pdf2 from '../../articles/La canelle.pdf';
-import pdf3 from '../../articles/Le clou de girofle.pdf';
-import image1 from '../../images/icone_entretien.svg';
-import image2 from '../../images/icone_domicile.svg';
-import image3 from '../../images/icone_skype.svg';
+import ailPdf from "../../articles/L'ail.pdf";
+import canellePdf from '../../articles/La canelle.pdf';
+import giroflePdf from '../../articles/Le clou de girofle.pdf';
+import canellePng from '../../articles/La canelle.png';
+import giroflePng from '../../articles/Le clou de girofle.png';
+import ailPng from "../../articles/L'ail.png";
 
 interface ActualiteData {
   title: string;
@@ -52,27 +52,60 @@ function truncateText(
   return text;
 }
 
-const test =
-  'C’est un bouton de fleur, déjà connu en Mésopotamie 1700 ans avant J-C, et plus tard les croisés l’ont utilisé pour combattre... les rages de dent.';
-const truncated = truncateText(test + test + test + test + test + test + test + test, {
+const truncateOptions = {
   fontSize: 16,
   fontFamily: 'Roboto',
   lineHeight: 20,
   width: 300,
   height: 60,
-});
-console.log(truncated);
+};
 
 const actualites: ActualiteData[] = [
   {
     title: 'La canelle',
-    intro:
-      'C’est un bouton de fleur, déjà connu en Mésopotamie 1700 ans avant J-C, et plus tard les croisés l’ont utilisé pour combattre... les rages de dent.',
-    img: image1,
-    pdf: pdf2,
+    intro: truncateText(
+      'Originaire de Ceylan, le cannelier fournit une écorce fortement parfumée. La cannelle est associée à l’idée du sucré bien qu’utilisée aussi dans des préparations culinaires salées.',
+      truncateOptions
+    ),
+    img: canellePng,
+    pdf: canellePdf,
   },
-  {title: 'Le clou de girofle', intro: '', img: image2, pdf: pdf3},
-  {title: "L'ail", intro: '', img: image3, pdf: pdf1},
+  {
+    title: "L'ail",
+    intro: truncateText(
+      'C’est la reine des herbes ! L’ail cultivée et l’ail des ours, la variété sauvage, sont connues pour leurs bienfaits depuis l’Antiquité, de l’Occident à l’Extrême-Orient. Les bâtisseurs de pyramides en consommaient et Hyppocrate utilisait l’ail pour soigner les cancers du sein et de la prostate.',
+      truncateOptions
+    ),
+    img: ailPng,
+    pdf: ailPdf,
+  },
+  {
+    title: 'Le clou de girofle',
+    intro: truncateText(
+      'C’est un bouton de fleur, déjà connu en Mésopotamie 1700 ans avant J-C, et plus tard les croisés l’ont utilisé pour combattre... les rages de dent.',
+      truncateOptions
+    ),
+    img: giroflePng,
+    pdf: giroflePdf,
+  },
+  {
+    title: "L'ail",
+    intro: truncateText(
+      'C’est la reine des herbes ! L’ail cultivée et l’ail des ours, la variété sauvage, sont connues pour leurs bienfaits depuis l’Antiquité, de l’Occident à l’Extrême-Orient. Les bâtisseurs de pyramides en consommaient et Hyppocrate utilisait l’ail pour soigner les cancers du sein et de la prostate.',
+      truncateOptions
+    ),
+    img: ailPng,
+    pdf: ailPdf,
+  },
+  {
+    title: 'Le clou de girofle',
+    intro: truncateText(
+      'C’est un bouton de fleur, déjà connu en Mésopotamie 1700 ans avant J-C, et plus tard les croisés l’ont utilisé pour combattre... les rages de dent.',
+      truncateOptions
+    ),
+    img: giroflePng,
+    pdf: giroflePdf,
+  },
 ];
 
 export function Actualite(): JSX.Element {
@@ -92,10 +125,18 @@ function ActualiteWeb(): JSX.Element {
     setIsSelected(true);
     setcurrentActualite(actualite);
   }
+  function handleButtonBackClick(): void {
+    setIsSelected(false);
+  }
   return (
     <div className={`${styles.wrapper} ${responsive.web}`}>
       <Pastilles handleButtonClick={handleButtonClick} display={!isSelected} />
-      <Wiewer display={isSelected} actualite={currentActualite} />
+      <Wiewer
+        handleButtonClick={handleButtonClick}
+        handleButtonBackClick={handleButtonBackClick}
+        display={isSelected}
+        actualite={currentActualite}
+      />
     </div>
   );
 }
@@ -150,7 +191,7 @@ function PastilleArticle(props: PastilleArticleProps): JSX.Element {
   return (
     <div className={styles.wrapper_pastille} onClick={handleClick}>
       <img src={props.actualite.img} />
-      <div>{props.actualite.title}</div>
+      <div className={styles.title}>{props.actualite.title}</div>
       <div className={styles.intro}>{props.actualite.intro}</div>
     </div>
   );
@@ -159,11 +200,22 @@ function PastilleArticle(props: PastilleArticleProps): JSX.Element {
 interface WiewerProps {
   display: boolean;
   actualite: ActualiteData;
+  handleButtonBackClick: () => void;
+  handleButtonClick: (actualite: ActualiteData) => void;
 }
 
 function Wiewer(props: WiewerProps): JSX.Element {
+  function handleButtonClick(actualite: ActualiteData): void {
+    props.handleButtonClick(actualite);
+  }
+  function handleClick(): void {
+    props.handleButtonBackClick();
+  }
   return (
     <div className={styles.wrapper_wiewer} style={{display: props.display ? 'flex' : 'none'}}>
+      <div className={styles.button} onClick={handleClick}>
+        Retour
+      </div>
       <iframe
         src={`${props.actualite.pdf}#toolbar=0`}
         width="800"
@@ -171,6 +223,10 @@ function Wiewer(props: WiewerProps): JSX.Element {
         seamless
         frameBorder={0}
       ></iframe>
+      <Pastilles handleButtonClick={handleButtonClick} display={true} />
+      <div className={styles.button} onClick={handleClick}>
+        Retour
+      </div>
     </div>
   );
 }

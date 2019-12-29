@@ -1,7 +1,6 @@
 @import '../styles/variables.scss';
 
 .wrapper {
-  display: flex;
   align-items: center;
   margin: 5% 5% calc(5% - 15px) 5%;
   .wrapper_pastilles {
@@ -12,47 +11,52 @@
       background-color: $color_3;
       width: 300px;
       margin-bottom: 15px;
-      /* styles for '...' */
-      .intro {
-        /* hide text if it more than N lines  */
-        overflow: hidden;
-        /* for set '...' in absolute position */
-        position: relative;
-        /* use this value to count block height */
-        line-height: 1.2em;
-        /* max-height = line-height (1.2) * lines max number (3) */
-        max-height: 3.6em;
-        /* fix problem when last visible word doesn't adjoin right side  */
-        text-align: justify;
-        /* place for '...' */
-        margin-right: -1em;
-        padding-right: 1em;
+      padding: 10px;
+      &:hover {
+        background-color: $color_2;
+        color: $color_3;
+        cursor: pointer;
       }
-      /* create the ... */
-      intro::before {
-        /* points in the end */
-        content: '...';
-        /* absolute position */
-        position: absolute;
-        /* set position to right bottom corner of block */
-        right: 0;
-        bottom: 0;
+    }
+    img {
+      width: 300px;
+    }
+    .title {
+      font-size: 22px;
+      padding: 10px 0px 10px 0px;
+      color: $color_1;
+    }
+    .intro {
+      font-size: 16px;
+      font-family: 'Roboto';
+      line-height: 20px;
+      height: 60px;
+      text-align: justify;
+    }
+  }
+  .wrapper_wiewer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $color_1;
+      color: white;
+      border-radius: 5px;
+      height: 50px;
+      width: 200px;
+      font-size: 18px;
+      &:hover {
+        cursor: pointer;
+        background-color: $color_2;
+        color: white;
       }
-      /* hide ... if we have text, which is less than or equal to max lines */
-      intro::after {
-        /* points in the end */
-        content: '';
-        /* absolute position */
-        position: absolute;
-        /* set position to right bottom corner of text */
-        right: 0;
-        /* set width and height */
-        width: 1em;
-        height: 1em;
-        margin-top: 0.2em;
-        /* bg color = bg color under block */
-        background: white;
-      }
+    }
+    iframe {
+      margin: 15px;
     }
   }
 }
