@@ -20,6 +20,8 @@ export class MenuLinkInternal extends React.Component<RouteComponentProps<{}> & 
     const wrapLinkClass = (className: string, isSelected: boolean): string =>
       `${className} ${isSelected ? this.props.selectedClassName : ''}`;
 
+    console.log(this.props.selectedClassName, 'test');
+
     const handleClick = () => {
       this.props.history.push(this.props.destination);
       if (this.props.onClick) {
@@ -47,31 +49,31 @@ export function Menu(): JSX.Element {
       <MenuLink
         destination={accueilRoute}
         className={styles.icon}
-        selectedClassName={styles.selectedClassName}
+        selectedClassName={styles.selected}
         content={<FontAwesomeIcon icon={faHome} className={styles.icon} />}
       />
       <MenuLink
         destination={methodeRoute}
         className={styles.text}
-        selectedClassName={styles.selectedClassName}
+        selectedClassName={styles.selected}
         content="Méthode"
       />
       <MenuLink
         destination={actualiteRoute}
         className={styles.text}
-        selectedClassName={styles.selectedClassName}
+        selectedClassName={styles.selected}
         content="Documentations"
       />
       <MenuLink
         destination={tarifsRoute}
         className={styles.text}
-        selectedClassName={styles.selectedClassName}
+        selectedClassName={styles.selected}
         content="Tarifs"
       />
       <MenuLink
         destination={contactRoute}
         className={styles.text}
-        selectedClassName={styles.selectedClassName}
+        selectedClassName={styles.selected}
         content="Contact"
       />
     </div>
