@@ -139,6 +139,7 @@ function ActualiteWeb(): JSX.Element {
   }
   function handleButtonBackClick(): void {
     setIsSelected(false);
+    window.scrollTo(0, 0);
   }
   return (
     <div className={`${styles.wrapper}`}>
@@ -242,7 +243,7 @@ function Wiewer(props: WiewerProps): JSX.Element {
     currentIndex += 1;
   }
 
-  const baseWidth = 873;
+  const baseWidth = 783;
   const baseHeight = 1100;
   const mobilePadding = 16;
 
