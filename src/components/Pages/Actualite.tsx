@@ -9,6 +9,7 @@ import giroflePng from '../../articles/Le clou de girofle.png';
 import ailPng from "../../articles/L'ail.png";
 
 interface ActualiteData {
+  id: string;
   title: string;
   intro: string;
   img: string;
@@ -60,8 +61,13 @@ const truncateOptions = {
   height: 60,
 };
 
+function randomId(): string {
+  return String(Math.floor(Math.random() * 1e9));
+}
+
 const actualites: ActualiteData[] = [
   {
+    id: randomId(),
     title: 'La canelle',
     intro: truncateText(
       'Originaire de Ceylan, le cannelier fournit une écorce fortement parfumée. La cannelle est associée à l’idée du sucré bien qu’utilisée aussi dans des préparations culinaires salées.',
@@ -71,6 +77,7 @@ const actualites: ActualiteData[] = [
     pdf: canellePdf,
   },
   {
+    id: randomId(),
     title: "L'ail",
     intro: truncateText(
       'C’est la reine des herbes ! L’ail cultivée et l’ail des ours, la variété sauvage, sont connues pour leurs bienfaits depuis l’Antiquité, de l’Occident à l’Extrême-Orient. Les bâtisseurs de pyramides en consommaient et Hyppocrate utilisait l’ail pour soigner les cancers du sein et de la prostate.',
@@ -80,6 +87,7 @@ const actualites: ActualiteData[] = [
     pdf: ailPdf,
   },
   {
+    id: randomId(),
     title: 'Le clou de girofle',
     intro: truncateText(
       'C’est un bouton de fleur, déjà connu en Mésopotamie 1700 ans avant J-C, et plus tard les croisés l’ont utilisé pour combattre... les rages de dent.',
@@ -89,6 +97,7 @@ const actualites: ActualiteData[] = [
     pdf: giroflePdf,
   },
   {
+    id: randomId(),
     title: "L'ail",
     intro: truncateText(
       'C’est la reine des herbes ! L’ail cultivée et l’ail des ours, la variété sauvage, sont connues pour leurs bienfaits depuis l’Antiquité, de l’Occident à l’Extrême-Orient. Les bâtisseurs de pyramides en consommaient et Hyppocrate utilisait l’ail pour soigner les cancers du sein et de la prostate.',
@@ -98,6 +107,7 @@ const actualites: ActualiteData[] = [
     pdf: ailPdf,
   },
   {
+    id: randomId(),
     title: 'Le clou de girofle',
     intro: truncateText(
       'C’est un bouton de fleur, déjà connu en Mésopotamie 1700 ans avant J-C, et plus tard les croisés l’ont utilisé pour combattre... les rages de dent.',
@@ -130,7 +140,11 @@ function ActualiteWeb(): JSX.Element {
   }
   return (
     <div className={`${styles.wrapper} ${responsive.web}`}>
-      <Pastilles handleButtonClick={handleButtonClick} display={!isSelected} />
+      <Pastilles
+        handleButtonClick={handleButtonClick}
+        display={!isSelected}
+        actualites={actualites}
+      />
       <Wiewer
         handleButtonClick={handleButtonClick}
         handleButtonBackClick={handleButtonBackClick}
@@ -149,7 +163,11 @@ function ActualiteMobile(): JSX.Element {
   }
   return (
     <div className={`${styles.wrapper} ${responsive.mobile}`}>
-      <Pastilles handleButtonClick={handleButtonClick} display={!isSelected} />
+      <Pastilles
+        handleButtonClick={handleButtonClick}
+        display={!isSelected}
+        actualites={actualites}
+      />
     </div>
   );
 }
@@ -157,16 +175,17 @@ function ActualiteMobile(): JSX.Element {
 interface PastillesProps {
   handleButtonClick: (actualite: ActualiteData) => void;
   display: boolean;
+  actualites: ActualiteData[];
 }
 
 function Pastilles(props: PastillesProps): JSX.Element {
   const pastilles_array: JSX.Element[] = [];
 
-  for (let i = 0; i < actualites.length; i++) {
+  for (let i = 0; i < props.actualites.length; i++) {
     pastilles_array.push(
       <PastilleArticle
-        key={actualites[i].title}
-        actualite={actualites[i]}
+        key={props.actualites[i].id}
+        actualite={props.actualites[i]}
         onPastilleClick={props.handleButtonClick}
       />
     );
@@ -211,6 +230,32 @@ function Wiewer(props: WiewerProps): JSX.Element {
   function handleClick(): void {
     props.handleButtonBackClick();
   }
+
+  const actualitesToDisplay = 3;
+
+  // Récupération de l'index de l'actualité courante
+  let currentIndex = actualites.map(a => a.id).indexOf(props.actualite.id);
+  if (currentIndex === -1) {
+    currentIndex = 0; // Should never happend
+  }
+
+  // Création d'un tableau de toutes les actualité sauf celle affichée
+  const filteredActualites = actualites.filter(a => a.id !== props.actualite.id);
+
+  // On parcours les actualités une par une à partir de l'index de l'actualité courante
+  // et on les ajoute dans un tableau jusqu'à qu'on en ait assez
+  const nextActualites: ActualiteData[] = [];
+  while (filteredActualites.length > 0 && nextActualites.length < actualitesToDisplay) {
+    // Si l'index dépasse la taille du tableau, on boucle au début
+    if (currentIndex >= filteredActualites.length) {
+      currentIndex = currentIndex % filteredActualites.length;
+    }
+    // Ajout de l'actualité
+    nextActualites.push(filteredActualites[currentIndex]);
+    // Passage à l'index suivant
+    currentIndex += 1;
+  }
+
   return (
     <div className={styles.wrapper_wiewer} style={{display: props.display ? 'flex' : 'none'}}>
       <div className={styles.button} onClick={handleClick}>
@@ -223,7 +268,7 @@ function Wiewer(props: WiewerProps): JSX.Element {
         seamless
         frameBorder={0}
       ></iframe>
-      <Pastilles handleButtonClick={handleButtonClick} display={true} />
+      <Pastilles handleButtonClick={handleButtonClick} display={true} actualites={nextActualites} />
       <div className={styles.button} onClick={handleClick}>
         Retour
       </div>

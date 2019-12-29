@@ -20,8 +20,6 @@ export class MenuLinkInternal extends React.Component<RouteComponentProps<{}> & 
     const wrapLinkClass = (className: string, isSelected: boolean): string =>
       `${className} ${isSelected ? this.props.selectedClassName : ''}`;
 
-    console.log(this.props.selectedClassName, 'test');
-
     const handleClick = () => {
       this.props.history.push(this.props.destination);
       if (this.props.onClick) {
