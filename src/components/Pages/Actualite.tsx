@@ -69,7 +69,7 @@ function randomId(): string {
 const actualites: ActualiteData[] = [
   {
     id: randomId(),
-    title: 'La canelle',
+    title: 'La cannelle',
     intro:
       'Originaire de Ceylan, le cannelier fournit une écorce fortement parfumée. La cannelle est associée à l’idée du sucré bien qu’utilisée aussi dans des préparations culinaires salées.',
     img: canellePng,
@@ -122,7 +122,6 @@ export function Actualite(): JSX.Element {
   return (
     <React.Fragment>
       <ActualiteWeb />
-      <ActualiteMobile />
     </React.Fragment>
   );
 }
@@ -141,7 +140,7 @@ function ActualiteWeb(): JSX.Element {
     setIsSelected(false);
   }
   return (
-    <div className={`${styles.wrapper} ${responsive.web}`}>
+    <div className={`${styles.wrapper}`}>
       <Pastilles
         handleButtonClick={handleButtonClick}
         display={!isSelected}
@@ -152,24 +151,6 @@ function ActualiteWeb(): JSX.Element {
         handleButtonBackClick={handleButtonBackClick}
         display={isSelected}
         actualite={currentActualite}
-      />
-    </div>
-  );
-}
-
-function ActualiteMobile(): JSX.Element {
-  const actualites = getActualites();
-  const [isSelected, setIsSelected] = useState<boolean>(false);
-
-  function handleButtonClick(actualite: ActualiteData): void {
-    setIsSelected(true);
-  }
-  return (
-    <div className={`${styles.wrapper} ${responsive.mobile}`}>
-      <Pastilles
-        handleButtonClick={handleButtonClick}
-        display={!isSelected}
-        actualites={actualites}
       />
     </div>
   );
