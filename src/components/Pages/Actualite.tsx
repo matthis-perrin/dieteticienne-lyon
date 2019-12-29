@@ -213,8 +213,11 @@ function PastilleArticle(props: PastilleArticleProps): JSX.Element {
   function handleClick(): void {
     props.onPastilleClick(props.actualite);
   }
+  const pastilleClass = isMobile()
+    ? styles.wrapper_pastille
+    : `${styles.wrapper_pastille} ${styles.wrapper_pastille_web}`;
   return (
-    <div className={styles.wrapper_pastille} onClick={handleClick}>
+    <div className={pastilleClass} onClick={handleClick}>
       <img src={props.actualite.img} />
       <div className={styles.title}>{props.actualite.title}</div>
       <div className={styles.intro}>{props.actualite.intro}</div>
