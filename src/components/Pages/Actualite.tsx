@@ -14,6 +14,7 @@ interface ActualiteData {
   intro: string;
   img: string;
   pdf: string;
+  numberOfPage: number;
 }
 
 function truncateText(
@@ -75,6 +76,7 @@ const actualites: ActualiteData[] = [
     ),
     img: canellePng,
     pdf: canellePdf,
+    numberOfPage: 1,
   },
   {
     id: randomId(),
@@ -85,6 +87,7 @@ const actualites: ActualiteData[] = [
     ),
     img: ailPng,
     pdf: ailPdf,
+    numberOfPage: 2,
   },
   {
     id: randomId(),
@@ -95,6 +98,7 @@ const actualites: ActualiteData[] = [
     ),
     img: giroflePng,
     pdf: giroflePdf,
+    numberOfPage: 2,
   },
   {
     id: randomId(),
@@ -105,6 +109,7 @@ const actualites: ActualiteData[] = [
     ),
     img: ailPng,
     pdf: ailPdf,
+    numberOfPage: 2,
   },
   {
     id: randomId(),
@@ -115,6 +120,7 @@ const actualites: ActualiteData[] = [
     ),
     img: giroflePng,
     pdf: giroflePdf,
+    numberOfPage: 2,
   },
 ];
 
@@ -134,6 +140,7 @@ function ActualiteWeb(): JSX.Element {
   function handleButtonClick(actualite: ActualiteData): void {
     setIsSelected(true);
     setcurrentActualite(actualite);
+    window.scrollTo(0, 0);
   }
   function handleButtonBackClick(): void {
     setIsSelected(false);
@@ -264,7 +271,7 @@ function Wiewer(props: WiewerProps): JSX.Element {
       <iframe
         src={`${props.actualite.pdf}#toolbar=0`}
         width="800"
-        height="3000"
+        height={1110 * props.actualite.numberOfPage}
         seamless
         frameBorder={0}
       ></iframe>

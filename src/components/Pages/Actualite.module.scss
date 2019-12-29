@@ -5,12 +5,12 @@
   margin: 5% 5% calc(5% - 15px) 5%;
   .wrapper_pastilles {
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     width: 100%;
     .wrapper_pastille {
       background-color: $color_3;
       width: 300px;
-      margin-bottom: 15px;
+      margin: 0px 8px 16px 8px;
       padding: 10px;
       &:hover {
         background-color: $color_2;
