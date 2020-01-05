@@ -4,7 +4,13 @@ import styles from './Menu.module.scss';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHome} from '@fortawesome/free-solid-svg-icons';
 import {RouteComponentProps} from 'react-router';
-import {accueilRoute, methodeRoute, actualiteRoute, tarifsRoute, contactRoute} from '../routes';
+import {
+  accueilRoute,
+  methodeRoute,
+  documentationsRoute,
+  tarifsRoute,
+  contactRoute,
+} from '../routes';
 
 interface MenuLinkProps {
   onClick?: () => void;
@@ -57,7 +63,7 @@ export function Menu(): JSX.Element {
         content="Méthode"
       />
       <MenuLink
-        destination={actualiteRoute}
+        destination={documentationsRoute}
         className={styles.text}
         selectedClassName={styles.selected}
         content="Documentations"

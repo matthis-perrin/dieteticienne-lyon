@@ -8,7 +8,7 @@ import {
   faMobileAlt,
   faEnvelope,
 } from '@fortawesome/free-solid-svg-icons';
-import banniere from '../../images/baniere_fruits_bleu_clair.svg';
+import banniere from '../../images/baniere_fruits_bleu_fonce.svg';
 
 export function Contact(): JSX.Element {
   return (

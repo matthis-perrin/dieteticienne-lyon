@@ -110,10 +110,10 @@ function Paragraphe1(): JSX.Element {
   return (
     <div className={styles.wrapper_methode}>
       <div className={styles.wrapper_text}>
-        <div className={styles.titre_text}>Au cabinet</div>Je vous acceuille dans mon cabinet
+        <div className={styles.titre_text}>Au cabinet</div>Je vous accueille dans mon cabinet
         <span className={styles.color}> situé à Tassin-la-demie-Lune</span>, au coeur du Parc les
-        bureaux verts. C’est dans ce cabinet que nous réaliserons ensembles les différentes séances.
-        Le contact humain permet de{' '}
+        bureaux verts. C’est ici que nous réaliserons ensemble les différentes séances. Le contact
+        humain permet de{' '}
         <span className={styles.color}> renforcer le sentiment de soutien et d’accompagnement</span>{' '}
         que je peux vous offrir. Je reste joignable par mail ou par téléphone si vous avez des
         questions entre chaque consultation.
@@ -134,7 +134,7 @@ function Paragraphe2(): JSX.Element {
       <div className={styles.wrapper_text}>
         <div className={styles.titre_text}>À domicile</div>Je peux{' '}
         <span className={styles.color}> me déplacer chez vous</span> aussi bien pour la consultation
-        initiale que pour les consultations de suivi. L'interet de venir à domicile est que nous
+        initiale que pour les consultations de suivi. L'intérêt de venir à domicile est que nous
         pourrons ensemble{' '}
         <span className={styles.color}>
           {' '}
@@ -155,7 +155,7 @@ function Paragraphe3(): JSX.Element {
     <div className={styles.wrapper_methode}>
       <div className={styles.wrapper_text}>
         <div className={styles.titre_text}>À distance</div>
-        <span className={styles.color}> Pratique et économique,</span> les consulations à distance
+        <span className={styles.color}> Pratiques et économiques,</span> les consulations à distance
         (skype, téléphone, ect.) sont similaire au consultation au cabinet. Je vous envoie{' '}
         <span className={styles.color}> un questionnaire détaillé pour préparer l’entretien.</span>{' '}
         Il est important de prendre son temps pour répondre au mieux à chaque question, c’est ainsi

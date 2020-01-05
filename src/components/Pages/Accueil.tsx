@@ -80,7 +80,7 @@ function Texte(): JSX.Element {
       <br />
       <br />
       <span className={styles.gras_color}>Au cabinet, à domicile ou à distance, </span>je vous aide
-      à atteindre vos objectifs, en prenant compte vos envies, vos goûts, vos sensations
+      à atteindre vos objectifs, en prenant en compte vos envies, vos goûts, vos sensations
       alimentaires.
     </div>
   );

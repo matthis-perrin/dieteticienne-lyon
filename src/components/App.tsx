@@ -17,7 +17,13 @@ import {Methode} from './Pages/Methode';
 import {Tarifs} from './Pages/Tarifs';
 import {Footer} from './Footer';
 import withTracker from './withTracker';
-import {tarifsRoute, actualiteRoute, contactRoute, methodeRoute, accueilRoute} from '../routes';
+import {
+  tarifsRoute,
+  documentationsRoute,
+  contactRoute,
+  methodeRoute,
+  accueilRoute,
+} from '../routes';
 import {HeaderContact} from './Header_Contact';
 
 export class _AppInner extends React.Component<RouteComponentProps<{}>, {}> {
@@ -44,7 +50,7 @@ export class _AppInner extends React.Component<RouteComponentProps<{}>, {}> {
             <Switch>
               <Route path={tarifsRoute} component={withTracker(Tarifs)}></Route>
               <Route path={methodeRoute} component={withTracker(Methode)}></Route>
-              <Route path={actualiteRoute} component={withTracker(Actualite)}></Route>
+              <Route path={documentationsRoute} component={withTracker(Actualite)}></Route>
               <Route path={contactRoute} component={withTracker(Contact)}></Route>
               <Route path={accueilRoute} component={withTracker(Accueil)}></Route>
             </Switch>

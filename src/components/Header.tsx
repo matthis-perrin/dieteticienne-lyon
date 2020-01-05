@@ -6,7 +6,13 @@ import {faMobileAlt, faBars} from '@fortawesome/free-solid-svg-icons';
 import logo from '../images/logo_pomme_15px.svg';
 import {Link} from 'react-router-dom';
 import {MenuLink} from './Menu';
-import {methodeRoute, accueilRoute, actualiteRoute, tarifsRoute, contactRoute} from '../routes';
+import {
+  methodeRoute,
+  accueilRoute,
+  documentationsRoute,
+  tarifsRoute,
+  contactRoute,
+} from '../routes';
 
 export function Header(): JSX.Element {
   return (
@@ -93,7 +99,7 @@ function HamburgerSideMenu(props: HamburgerSideMenuProps): JSX.Element {
           onClick={props.onClose}
         />
         <MenuLink
-          destination={actualiteRoute}
+          destination={documentationsRoute}
           className={styles.menu}
           selectedClassName={styles.menu_selected}
           content="Documentations"

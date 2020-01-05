@@ -1,22 +1,7 @@
 import React, {Fragment, useState} from 'react';
+import {actualites, ActualiteData} from '../../articles/__Data_Article';
 import styles from './Actualite.module.scss';
-import responsive from '../../styles/mobile.module.scss';
-import ailPdf from "../../articles/L'ail.pdf";
-import canellePdf from '../../articles/La canelle.pdf';
-import giroflePdf from '../../articles/Le clou de girofle.pdf';
-import canellePng from '../../articles/La canelle.png';
-import giroflePng from '../../articles/Le clou de girofle.png';
-import ailPng from "../../articles/L'ail.png";
 import {SizeMonitor} from '../size_monitor';
-
-interface ActualiteData {
-  id: string;
-  title: string;
-  intro: string;
-  img: string;
-  pdf: string;
-  numberOfPage: number;
-}
 
 function truncateText(
   text: string,
@@ -62,58 +47,6 @@ const truncateOptions = {
   width: 300,
   height: 60,
 };
-
-function randomId(): string {
-  return String(Math.floor(Math.random() * 1e9));
-}
-
-const actualites: ActualiteData[] = [
-  {
-    id: randomId(),
-    title: 'La cannelle',
-    intro:
-      'Originaire de Ceylan, le cannelier fournit une écorce fortement parfumée. La cannelle est associée à l’idée du sucré bien qu’utilisée aussi dans des préparations culinaires salées.',
-    img: canellePng,
-    pdf: canellePdf,
-    numberOfPage: 1,
-  },
-  {
-    id: randomId(),
-    title: "L'ail",
-    intro:
-      'C’est la reine des herbes ! L’ail cultivée et l’ail des ours, la variété sauvage, sont connues pour leurs bienfaits depuis l’Antiquité, de l’Occident à l’Extrême-Orient. Les bâtisseurs de pyramides en consommaient et Hyppocrate utilisait l’ail pour soigner les cancers du sein et de la prostate.',
-    img: ailPng,
-    pdf: ailPdf,
-    numberOfPage: 2,
-  },
-  {
-    id: randomId(),
-    title: 'Le clou de girofle',
-    intro:
-      'C’est un bouton de fleur, déjà connu en Mésopotamie 1700 ans avant J-C, et plus tard les croisés l’ont utilisé pour combattre... les rages de dent.',
-    img: giroflePng,
-    pdf: giroflePdf,
-    numberOfPage: 2,
-  },
-  {
-    id: randomId(),
-    title: "L'ail",
-    intro:
-      'C’est la reine des herbes ! L’ail cultivée et l’ail des ours, la variété sauvage, sont connues pour leurs bienfaits depuis l’Antiquité, de l’Occident à l’Extrême-Orient. Les bâtisseurs de pyramides en consommaient et Hyppocrate utilisait l’ail pour soigner les cancers du sein et de la prostate.',
-    img: ailPng,
-    pdf: ailPdf,
-    numberOfPage: 2,
-  },
-  {
-    id: randomId(),
-    title: 'Le clou de girofle',
-    intro:
-      'C’est un bouton de fleur, déjà connu en Mésopotamie 1700 ans avant J-C, et plus tard les croisés l’ont utilisé pour combattre... les rages de dent.',
-    img: giroflePng,
-    pdf: giroflePdf,
-    numberOfPage: 2,
-  },
-];
 
 function getActualites(): ActualiteData[] {
   return actualites.map(a => ({...a, intro: truncateText(a.intro, truncateOptions)}));
