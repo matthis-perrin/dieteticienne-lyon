@@ -1,7 +1,11 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useState, useEffect} from 'react';
 import {actualites, ActualiteData} from '../../articles/__Data_Article';
 import styles from './Actualite.module.scss';
 import {SizeMonitor} from '../size_monitor';
+
+function isPageLoaded(): boolean {
+  return document.readyState === 'complete';
+}
 
 function truncateText(
   text: string,
@@ -69,6 +73,19 @@ function isMobile(): boolean {
 }
 
 export function Actualite(): JSX.Element {
+  const [isLoaded, setIsLoaded] = useState(isPageLoaded());
+  useEffect(() => {
+    document.onreadystatechange = () => {
+      if (!isLoaded) {
+        const newIsPageLoaded = isPageLoaded();
+        if (newIsPageLoaded !== isLoaded) {
+          console.log(1);
+          setIsLoaded(newIsPageLoaded);
+        }
+      }
+    };
+  }, [isLoaded]);
+
   return (
     <React.Fragment>
       <ActualiteWeb />
